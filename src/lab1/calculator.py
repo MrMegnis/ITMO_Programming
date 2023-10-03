@@ -7,7 +7,7 @@ class ExpressionError(Exception):
 
 class Calculator:
     def __init__(self):
-        self.symbols_allowed = "1234567890()+-*/ "
+        self.symbols_allowed = "1234567890()+-*/. "
 
     def is_corr_brack_seq(self, seq: str) -> bool:
         stack = deque()
@@ -26,8 +26,14 @@ class Calculator:
         return len(stack) == 0
 
     def is_expression_correct(self, expression: str) -> bool:
+        if expression == "":
+            return False
         is_digit_in_exp = False
-        for i in expression:
+        for indx, i in enumerate(expression):
+            if i == "." and not (
+                    indx > 0 and indx + 1 < len(expression) and expression[indx - 1].isdigit() and
+                    expression[indx + 1].isdigit()):
+                return False
             if i not in self.symbols_allowed:
                 return False
             if i.isdigit():
@@ -38,7 +44,10 @@ class Calculator:
         if not self.is_expression_correct(expression):
             # raise ExpressionError
             return "Expression is not correct"
-        return eval(expression)
+        try:
+            return eval(expression)
+        except Exception as e:
+            return "Expression is not correct"
 
 
 def main():
