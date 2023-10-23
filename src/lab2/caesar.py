@@ -37,5 +37,7 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     ''
     """
     plaintext = ""
-    #PUT YOUR CODE HERE
+    symbols_amount = ord('z') - ord('a') + 1
+    actual_shift = shift % symbols_amount
+    plaintext = encrypt_caesar(ciphertext, symbols_amount - actual_shift)
     return plaintext
