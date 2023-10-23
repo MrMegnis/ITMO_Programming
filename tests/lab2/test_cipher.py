@@ -10,35 +10,35 @@ class CipherTestCase(unittest.TestCase):
         message = "Aboba"
         shift = 25
         encrypted = encrypt_caesar(message, shift)
-        decrypted = decrypt_caesar(encrypted)
+        decrypted = decrypt_caesar(encrypted, shift)
         self.assertEquals(encrypted, "Zanaz")
         self.assertEquals(decrypted, message)
 
         message = "Raiden"
         shift = 11
         encrypted = encrypt_caesar(message, shift)
-        decrypted = decrypt_caesar(encrypted)
+        decrypted = decrypt_caesar(encrypted, shift)
         self.assertEquals(encrypted, "Cltopy")
         self.assertEquals(decrypted, message)
 
         message = "BIGLETTERS"
         shift = 2
         encrypted = encrypt_caesar(message, shift)
-        decrypted = decrypt_caesar(encrypted)
+        decrypted = decrypt_caesar(encrypted, shift)
         self.assertEquals(encrypted, "DKINGVVGTU")
         self.assertEquals(decrypted, message)
 
         message = "smol"
         shift = 6
         encrypted = encrypt_caesar(message, shift)
-        decrypted = decrypt_caesar(encrypted)
+        decrypted = decrypt_caesar(encrypted, shift)
         self.assertEquals(encrypted, "ysur")
         self.assertEquals(decrypted, message)
 
         message = ""
         shift = 1000000000000
         encrypted = encrypt_caesar(message, shift)
-        decrypted = decrypt_caesar(encrypted)
+        decrypted = decrypt_caesar(encrypted, shift)
         self.assertEquals(encrypted, "")
         self.assertEquals(decrypted, message)
 
@@ -46,35 +46,35 @@ class CipherTestCase(unittest.TestCase):
         message = "Biba"
         key = "Boba"
         encrypted = encrypt_vigenere(message, key)
-        decrypted = decrypt_vigenere(encrypted)
-        self.assertEquals(encrypted, "Dxdb")
+        decrypted = decrypt_vigenere(encrypted, key)
+        self.assertEquals(encrypted, "Cwca")
         self.assertEquals(decrypted, message)
 
         message = "Raiden"
         key = "Yae"
         encrypted = encrypt_vigenere(message, key)
-        decrypted = decrypt_vigenere(encrypted)
-        self.assertEquals(encrypted, "Qbncfs")
+        decrypted = decrypt_vigenere(encrypted, key)
+        self.assertEquals(encrypted, "Pamber")
         self.assertEquals(decrypted, message)
 
         message = "AAAAA"
         key = "B"
         encrypted = encrypt_vigenere(message, key)
-        decrypted = decrypt_vigenere(encrypted)
-        self.assertEquals(encrypted, "CCCCC")
+        decrypted = decrypt_vigenere(encrypted, key)
+        self.assertEquals(encrypted, "BBBBB")
         self.assertEquals(decrypted, message)
 
         message = "smol"
         key = "letters"
         encrypted = encrypt_vigenere(message, key)
-        decrypted = decrypt_vigenere(encrypted)
-        self.assertEquals(encrypted, "erif")
+        decrypted = decrypt_vigenere(encrypted, key)
+        self.assertEquals(encrypted, "dqhe")
         self.assertEquals(decrypted, message)
 
         message = ""
         key = "AmaWannaCheeseBueger"
         encrypted = encrypt_vigenere(message, key)
-        decrypted = decrypt_vigenere(encrypted)
+        decrypted = decrypt_vigenere(encrypted, key)
         self.assertEquals(encrypted, "")
         self.assertEquals(decrypted, message)
 
