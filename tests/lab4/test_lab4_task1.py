@@ -9,14 +9,15 @@ class Lab4Task1TestCase(unittest.TestCase):
     def test_example(self):
         '''Тест из примера'''
         input_text = """2,4"""
+        # print(os.path.realpath(os.path.dirname(__file__)))
         films_path = "films.csv"
         history_path = "history.csv"
         if os.name == "nt":
-            films_path = f"{pathlib.Path().resolve()}\\{films_path}"
-            history_path = f"{pathlib.Path().resolve()}\\{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{history_path}"
         else:
-            films_path = f"{pathlib.Path().resolve()}/{films_path}"
-            history_path = f"{pathlib.Path().resolve()}/{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}/{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}/{history_path}"
         result = solution(films_path, history_path, StringIO(input_text))
         answer = """Дюна"""
         self.assertEqual(result, answer)
@@ -27,11 +28,11 @@ class Lab4Task1TestCase(unittest.TestCase):
         films_path = "films2.csv"
         history_path = "history2.csv"
         if os.name == "nt":
-            films_path = f"{pathlib.Path().resolve()}\\{films_path}"
-            history_path = f"{pathlib.Path().resolve()}\\{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{history_path}"
         else:
-            films_path = f"{pathlib.Path().resolve()}/{films_path}"
-            history_path = f"{pathlib.Path().resolve()}/{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}/{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}/{history_path}"
         result = solution(films_path, history_path, StringIO(input_text))
         answer = """Мстители: Финал, Дюна"""
         self.assertEqual(result, answer)
@@ -42,11 +43,11 @@ class Lab4Task1TestCase(unittest.TestCase):
         films_path = "films2.csv"
         history_path = "history2.csv"
         if os.name == "nt":
-            films_path = f"{pathlib.Path().resolve()}\\{films_path}"
-            history_path = f"{pathlib.Path().resolve()}\\{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{history_path}"
         else:
-            films_path = f"{pathlib.Path().resolve()}/{films_path}"
-            history_path = f"{pathlib.Path().resolve()}/{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}/{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}/{history_path}"
         result = solution(films_path, history_path, StringIO(input_text))
         answer = """Хатико"""
         self.assertEqual(result, answer)
@@ -57,11 +58,11 @@ class Lab4Task1TestCase(unittest.TestCase):
         films_path = "films2.csv"
         history_path = "history2.csv"
         if os.name == "nt":
-            films_path = f"{pathlib.Path().resolve()}\\{films_path}"
-            history_path = f"{pathlib.Path().resolve()}\\{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}\\{history_path}"
         else:
-            films_path = f"{pathlib.Path().resolve()}/{films_path}"
-            history_path = f"{pathlib.Path().resolve()}/{history_path}"
+            films_path = f"{os.path.realpath(os.path.dirname(__file__))}/{films_path}"
+            history_path = f"{os.path.realpath(os.path.dirname(__file__))}/{history_path}"
         result = solution(films_path, history_path, StringIO(input_text))
         answer = """"""
         self.assertEqual(result, answer)
