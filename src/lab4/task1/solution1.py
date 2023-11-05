@@ -7,6 +7,8 @@ films = dict() # словарь всех фильмов из файла
 def parse_csv(file_name: str) -> list:
     '''
     Получает данные из файла csv и возварщает их как список
+    input: имя файла
+    output: данные csv файла
     >>> parse_csv("films.csv")
     [['1', 'Мстители: Финал'], ['2', 'Хатико'], ['3', 'Дюна'], ['4', 'Унесенные призраками']]
     >>> parse_csv("history.csv")
@@ -21,7 +23,11 @@ def parse_csv(file_name: str) -> list:
 
 
 def get_all_films(films_file: str):
-    '''Получение списка фильмов из файла'''
+    '''Сохранение списка фильмов из файла
+    input: имя файла с фильмами
+    output: None
+    Сохраняет все фильмы из файла в глобальную переменную
+    '''
     global films
     raw_data = parse_csv(films_file)
     films = dict()
@@ -31,7 +37,10 @@ def get_all_films(films_file: str):
 
 
 def get_all_users(users_history_file: str) -> list:
-    '''Получение историй просмотров всех пользователей'''
+    '''Получение историй просмотров всех пользователей
+    input: имя файла с историей пользователей
+    output: список классов Users
+    '''
     raw_data = parse_csv(users_history_file)
     users = list()
     for data in raw_data:
@@ -87,7 +96,10 @@ class User:
 
 
 def solution(films_file: str, history_file: str, flow=stdin):
-    '''Решение задачи'''
+    '''Решение задачи
+    input: имя файла с фильмами, имя файла с историей пользователей, поток для считывания данных (stdin по умолчанию)
+    output: строка с рекомендованными фильмами
+    '''
     get_all_films(films_file)
     users = get_all_users(history_file)
     inp = flow.readline()
